@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeviceManagement.MainPage"
+             Title="Сканирование Bluetooth устройств"
+             BackgroundColor="White">
+    <Grid>
+        <StackLayout Padding="10, 10, 10, 10">
+            <Frame CornerRadius="15">
+                <StackLayout Orientation="Horizontal">
+                    <Button x:Name="ScanButton" Text="Сканировать" Clicked="ScanButton_Clicked" BackgroundColor="Black" TextColor="White" CornerRadius="15" WidthRequest="320"></Button>
+                    <CheckBox x:Name="ScanCheckBox"></CheckBox>
+                </StackLayout>
+            </Frame>
+            <Frame CornerRadius="15">
+                <ListView x:Name="DevicesListView" ItemTapped="DevicesListView_ItemTapped" SeparatorColor="Black">
+                    <ListView.ItemTemplate>
+                        <DataTemplate >
+                            <TextCell Text="{Binding Name}" TextColor="Black"></TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </StackLayout>
+        <ActivityIndicator x:Name="IsBusyIndicator" Scale="0.1" Color="Black"/>
+    </Grid>
+    
+</ContentPage>
