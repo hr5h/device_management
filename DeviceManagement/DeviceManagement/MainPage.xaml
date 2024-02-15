@@ -2,27 +2,89 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="DeviceManagement.MainPage"
-             Title="Сканирование Bluetooth устройств"
-             BackgroundColor="White">
-    <Grid>
-        <StackLayout Padding="10, 10, 10, 10">
-            <Frame CornerRadius="15">
-                <StackLayout Orientation="Horizontal">
-                    <Button x:Name="ScanButton" Text="Сканировать" Clicked="ScanButton_Clicked" BackgroundColor="Black" TextColor="White" CornerRadius="15" WidthRequest="320"></Button>
-                    <CheckBox x:Name="ScanCheckBox"></CheckBox>
+             BackgroundColor="#FFFFFF">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Black" />
+                                <Setter Property="BackgroundColor" Value="#F6F8FD" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Black" />
+                                <Setter Property="BackgroundColor" Value="#F6F8FD" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#6B6B6B" />
+                                <Setter Property="BackgroundColor" Value="#F5F5F5"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+    
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--<Switch x:Name="ThemeSwitch" HorizontalOptions="End" VerticalOptions="Start" OnColor="Black" ThumbColor="Black" Toggled="ThemeSwitch_Toggled"></Switch>-->
+        <StackLayout HorizontalOptions="End" Grid.Row="0">
+            <Button x:Name="HistoryButton" Text="История" Clicked="HistoryButton_Clicked" BackgroundColor="#F8F8FF" BorderWidth="1"
+                TextColor="Black" CornerRadius="30" WidthRequest="100" Style="{StaticResource Key=ButtonStyle}"/>
+        </StackLayout>
+        <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Margin="0, 70, 0, 0" Grid.Row="0">
+            <Label x:Name="HeaderLabel" Text="Управление устройствами" TextColor="Black" FontSize="34" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+        </StackLayout>
+        <StackLayout VerticalOptions="Start" Grid.Row="1" Margin="0, 10, 0, 0">
+            <Frame x:Name="Frame" WidthRequest="400" CornerRadius="30" BackgroundColor="#F8F8FF" IsVisible="false" HasShadow="False">
+                <StackLayout>
+                    <ScrollView>
+                        <Grid x:Name="Grid"></Grid>
+                    </ScrollView>
                 </StackLayout>
             </Frame>
-            <Frame CornerRadius="15">
-                <ListView x:Name="DevicesListView" ItemTapped="DevicesListView_ItemTapped" SeparatorColor="Black">
-                    <ListView.ItemTemplate>
-                        <DataTemplate >
-                            <TextCell Text="{Binding Name}" TextColor="Black"></TextCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </Frame>
         </StackLayout>
-        <ActivityIndicator x:Name="IsBusyIndicator" Scale="0.1" Color="Black"/>
+        <Grid WidthRequest="400" HeightRequest="400" x:Name="GridCarouselView" Grid.Row="1">
+            <CarouselView x:Name="CarouselView" IndicatorView="IndicatorView">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="False">
+                                <StackLayout>
+                                    <Image Source="{Binding Image}" MinimumHeightRequest="200" MinimumWidthRequest="200"/>
+                                    <Label x:Name="Label1CarouselView" Text="{Binding Name}" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center"/>
+                                    <Label x:Name="Label2CarouselView" Text="Подробнее" TextColor="Black" FontSize="Small" TextDecorations="Underline" HorizontalOptions="Center">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding DeviceLinkCommand}" />
+                                        </Label.GestureRecognizers>
+                                    </Label>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView x:Name="IndicatorView" IndicatorColor="LightGray" SelectedIndicatorColor="Black" VerticalOptions="End" HorizontalOptions="Center" HeightRequest="10"></IndicatorView>
+        </Grid>
+        <StackLayout VerticalOptions="End" Grid.Row="3">
+            <Button x:Name="ScanButton" Text="Поиск" FontAttributes="Bold" Clicked="ScanButton_Clicked" BackgroundColor="#F8F8FF" 
+                            BorderWidth="1" TextColor="Black" CornerRadius="30" Margin="20, 0, 20, 0" WidthRequest="320" Style="{StaticResource Key=ButtonStyle}">
+            </Button>
+        </StackLayout>
+        <ActivityIndicator x:Name="IsBusyIndicator" Scale="1" Color="#2196e0" VerticalOptions="End" Margin="0, 0, 0, 60" Grid.Row="2"/>
     </Grid>
-    
+
 </ContentPage>

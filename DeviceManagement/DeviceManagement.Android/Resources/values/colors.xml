@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="launcher_background">#FFFFFF</color>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#000000</color>
+  <!--255, 255, 255-->
+  <color name="launcher_background">#FFFFFF</color>
+  <!--33, 150, 224-->
+  <color name="colorPrimary">#2F9FEF</color>
+  <!--33, 150, 224-->
+  <color name="colorPrimaryDark">#2196e0</color>
+  <!--0, 0, 0-->
+  <color name="colorAccent">#000000</color>
+
+  <!--33, 150, 224-->
+  <color name="colorNavigationBar">#2196e0</color>
+  
+  <!--255, 255, 255-->
+  <color name="window_background_color">#FFFFFF</color>
+  
+  <!--144, 203, 240-->
+  <color name="ListViewSelected">#FFFFFF</color>
+  <!--144, 203, 240-->
+  <color name="ListViewHighlighted">#FFFFFF</color>
+
+  <!--240, 248, 255-->
+  <color name="BackgroundColor_Button">#F0F8FF</color>
+  <!--0, 127, 255-->
+  <color name="BorderColor_Button">#007FFF</color>
+  <!--0, 0, 0-->
+  <color name="TextColor_Button">#000000</color>
+  
+  <!--240, 248, 255-->
+  <color name="BackgroundColor_Frame">#F0F8FF</color>
+  <!--0, 127, 255-->
+  <color name="BorderColor_Frame">#007FFF</color>
+
+  <!--0, 127, 255-->
+  <color name="Color_BoxView">#007FFF</color>
+ 
+  <!--245, 245, 245-->
+  <color name="BackgroundColor_Window">#F5F5F5</color>
 </resources>

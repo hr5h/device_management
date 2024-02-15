@@ -6,23 +6,7 @@
     <ContentPage.Content>
         <StackLayout Padding="10, 10, 10, 10">
             <Frame CornerRadius="15">
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Label Text="Светодиод            " TextColor="Black" FontSize="Large" HorizontalOptions="Start" VerticalOptions="Center"></Label>
-                    <Button x:Name="DiodOnButton" Text="On" Clicked="DiodOnButton_Clicked" BackgroundColor="Green" TextColor="White" CornerRadius="15"></Button>
-                    <Button x:Name="DiodOffButton" Text="Off" Clicked="DiodOffButton_Clicked" BackgroundColor="Red" TextColor="White" CornerRadius="15"></Button>
-                </StackLayout>
-            </Frame>
-            <!--<Entry x:Name="SendEntry" TextColor="Black"></Entry>-->
-            <!--<Button x:Name="SendButton" Text="Отправить" Clicked="SendButton_Clicked" BackgroundColor="Black" TextColor="White" CornerRadius="15"></Button>-->
-            <Frame CornerRadius="15">
-                <StackLayout>
-                    <Label Text="Полученные данные" TextColor="Black" FontSize="Large" HorizontalTextAlignment="Center"></Label>
-                    <ScrollView VerticalOptions="StartAndExpand" BackgroundColor="White">
-                        <Frame>
-                            <Label x:Name="Output" TextColor="Black" VerticalOptions="CenterAndExpand"/>
-                        </Frame>
-                    </ScrollView>
-                </StackLayout>
+                <Label Text="Новое устройство" TextColor="Black" FontSize="Large" HorizontalOptions="Center" VerticalOptions="Center"></Label>
             </Frame>
         </StackLayout>
     </ContentPage.Content>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeviceManagement.HistoryPage">
+    <ContentPage.Content>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Margin="20, 70, 20, 0" Grid.Row="0">
+                <Label x:Name="HeaderLabel" Text="История тестирования устройств" TextColor="Black" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout VerticalOptions="Start" Grid.Row="1" Margin="0, 10, 0, 0">
+                <Frame x:Name="Frame" WidthRequest="400" CornerRadius="30" BackgroundColor="#F8F8FF" IsVisible="false" HasShadow="False">
+                    <StackLayout>
+                        <ScrollView>
+                            <Grid x:Name="Grid"></Grid>
+                        </ScrollView>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

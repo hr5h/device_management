@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              x:Class="DeviceManagement.IPS_1"
+              Background="#FFFFFF">
+    
+    <CarouselPage.Resources>
+        <Style TargetType="Button" x:Key="ButtonStyle">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Black" />
+                                <Setter Property="BackgroundColor" Value="#F6F8FD" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Pressed">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="Black" />
+                                <Setter Property="BackgroundColor" Value="#F6F8FD" />
+                            </VisualState.Setters>
+                        </VisualState>
+                        <VisualState x:Name="Disabled">
+                            <VisualState.Setters>
+                                <Setter Property="TextColor" Value="#6B6B6B" />
+                                <Setter Property="BackgroundColor" Value="#F5F5F5"></Setter>
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </CarouselPage.Resources>
+    
+    <ContentPage>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" HeightRequest="280">
+                <Button x:Name="HistoryButton" Text="История" TextColor="Black" BackgroundColor="#F8F8FF" CornerRadius="30"
+                        HorizontalOptions="End" Clicked="HistoryButton_Clicked" Style="{StaticResource Key=ButtonStyle}">
+                </Button>
+                <StackLayout>
+                    <Frame CornerRadius="30" HorizontalOptions="Center" WidthRequest="250" HasShadow="False" BackgroundColor="#F8F8FF">
+                        <StackLayout>
+                            <Grid Margin="5">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image Source="lightning2.png" WidthRequest="30" HeightRequest="30" HorizontalOptions="Start" VerticalOptions="Start"></Image>
+                                    <Label x:Name="lightningLabel" Text="0V" FontSize="Medium" TextColor="Black"></Label>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                                    <Image x:Name="batteryImage" Source="power_full.png" WidthRequest="30" HeightRequest="30" HorizontalOptions="End" VerticalOptions="Start"></Image>
+                                </StackLayout>
+                            </Grid>
+
+                            <StackLayout Orientation="Horizontal" Margin="5">
+                                <Image Source="temperature2.png" WidthRequest="30" HeightRequest="30"></Image>
+                                <Label x:Name="temperatureLabel" Text="0 C°" FontSize="Medium" TextColor="Black"></Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Margin="5">
+                                <Image Source="humidity.png" WidthRequest="30" HeightRequest="30"></Image>
+                                <Label x:Name="humidityLabel" Text="0 %" FontSize="Medium" TextColor="Black"></Label>
+                            </StackLayout>
+
+                            <StackLayout Orientation="Horizontal" Margin="5">
+                                <Image Source="resistor.png" WidthRequest="30" HeightRequest="30" VerticalOptions="End"></Image>
+                                <Label x:Name="resistorLabel" Text="0 Ом" FontSize="Medium" TextColor="Black" VerticalOptions="End"></Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="SaveResult" VerticalOptions="Start" IsVisible="False" Grid.Row="1">
+                <Frame Background="#F8F8FF" CornerRadius="30" HeightRequest="12" HasShadow="False">
+                    <StackLayout Orientation="Horizontal" Margin="0, -10, 0, -20">
+                        <Label Text="Название:" TextColor="Black" FontSize="Medium" VerticalOptions="Center" Margin="0, -12, 0, -5"></Label>
+                        <Entry x:Name="SaveEntry" Text="" Background="#F8F8FF" TextColor="Black" HorizontalOptions="FillAndExpand"></Entry>
+                    </StackLayout>
+                </Frame>
+                <Button x:Name="SaveButton" Text="Сохранить" TextColor="Black" CornerRadius="30" WidthRequest="200" BackgroundColor="#F8F8FF"
+                        HorizontalOptions="End" Clicked="SaveButton_Clicked" Style="{StaticResource Key=ButtonStyle}">
+                </Button>
+            </StackLayout>
+            <ActivityIndicator x:Name="IsTestIndicator" Color="#2196e0" VerticalOptions="Center" Scale="2"  Grid.Row="2"/>
+            <!--<ProgressBar x:Name="ProgressTest" Progress="0" ProgressColor="#2196e0" VerticalOptions="Center"/>-->
+            <Grid VerticalOptions="End" Grid.Row="3">
+                <StackLayout Margin="20, 0, 20, 15">
+                    <Button x:Name="StartTestButton" Text="Начать тестирование" BackgroundColor="#F8F8FF"
+                                TextColor="Black" CornerRadius="30" WidthRequest="320" HeightRequest="60" Clicked="StartTestButton_Clicked" Style="{StaticResource Key=ButtonStyle}">
+                    </Button>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End" HeightRequest="2" Margin="0, 0, 0, 8">
+                    <BoxView x:Name="BoxView1" HeightRequest="2" Color="Black"></BoxView>
+                    <BoxView HeightRequest="2" Color="LightGray"></BoxView>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage>
+    <ContentPage>
+        <Grid Padding="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <!--<Frame CornerRadius="15" HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="#F0F8FF" BorderColor="#007FFF"></Frame>-->
+            <StackLayout VerticalOptions="Start" Margin="0, 0, 0, 0" Grid.Row="0">
+                <Label x:Name="HeaderLabel" Text="Измеритель поверхностного сопротивления ИПС-1" TextColor="Black" FontSize="Large" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Start" HorizontalTextAlignment="Center"></Label>
+                <StackLayout HeightRequest="320">
+                    <CarouselView x:Name="CarouselView" IndicatorView="IndicatorViewImg">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame CornerRadius="30" HasShadow="False">
+                                        <Image Source="{Binding }" MinimumHeightRequest="150" MinimumWidthRequest="150"/>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <IndicatorView x:Name="IndicatorViewImg" IndicatorColor="LightGray" SelectedIndicatorColor="Black" HorizontalOptions="Center" HeightRequest="10"></IndicatorView>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout HorizontalOptions="Center" VerticalOptions="End" Grid.Row="2">
+                <Label x:Name="DescriptionLabel" Text="Описание:" TextColor="Black" FontSize="Large" FontAttributes="Bold"></Label>
+                <Frame CornerRadius="30" WidthRequest="390" HeightRequest="250" BackgroundColor="#F8F8FF" HasShadow="False" Margin="0, 0, 0, 15">
+                    <ScrollView Margin="0, 0, -10, 0">
+                        <StackLayout Margin="0, 0, 10, 0">
+                            <Label Text="Прибор ИПС-1 предназначен для измерения электрического сопротивления:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"></Label>
+                            <Label Text="-антистатических рабочих поверхностей, стеллажей, тележек и сидений на соответствие ГОСТ IEC 61340-2-3;" TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="-антистатических напольных покрытий – ГОСТ IEC 61340-4-1;" TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="-антистатической одежды – ГОСТ IEC 61340-4-9;" TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="-антистатической рабочей поверхности и точки  заземления согласно нормам по организации заземления персонала «Сотрудник-браслет» по ГОСТ IEC 61340-4-6-2019." 
+                           TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="Прибор выполняет измерения сопротивления поверхности методом прямого измерения, в соответствии с требованиями ГОСТ Р50499. В этом случае поверхностное сопротивление определяется как частное от деления значения постоянного напряжения, приложенного между двух электродов на поверхности образца, на значение тока между электродами в данное время после включения тока без учета возможной поляризации электродов. Метод измерения также соответствует требованиям ГОСТ IEC 61340-5-1-2019; ГОСТ IEC TR 61340-5-2-2021. Применяется в ESD-аудите (ЭСР-аудите) помещений, мебели, лабораторной одежды, напольных покрытий при производстве микро- и радиоэлектроники, фармацевтики и в других сферах, где недопустимо статическое напряжение."
+                               TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="На лицевой панели измерителя располагается информационное табло, на котором отображается измеренное сопротивление, текущая температура и влажность в помещении. Дополнительно отображается величина заряда батареи прибора. С помощью двух кнопок осуществляется операция замера сопротивления. Одна из кнопок (черного цвета) изменяет величину испытательного напряжения (10 или 100В), вторая кнопка (нефиксируемая) производит операцию тестирования."
+                               TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="Измерительные электроды изготовлены из металла в виде цилиндров с гнездами под штекер типа «банан» для подключения к прибору ИПС-1. Наружная поверхность электрода изолирована термоусадочной пленкой. Подошва электрода представляет собой плоскую круглую контактную зону диаметром (65±5) мм, которая должна иметь токопроводящую резиновую подушку твердостью (60±10) единиц по шкале Шора А. Для удобства переноса измерительного электрода он снабжен Т-образной ручкой из изоляционного материала. Общая масса каждого измерительного электрода составляет (2,5±0,25) кг. Контактное сопротивление каждого измерительного электрода, составляет не более 1000 Ом."
+                               TextColor="Black" FontSize="Small"></Label>
+
+                            <Label Text="Замеры производятся стабилизированным испытательным напряжением:" TextColor="Black" FontSize="Medium" FontAttributes="Bold"></Label>
+                            <Label Text="-10 В при тестировании поверхностей с сопротивлением до 10⁶ Ом;" TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="-100 В при тестировании поверхностей свыше 10⁶ Ом." TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="Время тестирования (выдержка под напряжением) задается автоматически – около 15 сек." TextColor="Black" FontSize="Small"></Label>
+                            <Label Text="Диапазон измерений сопротивления от менее чем 10³ Ом, до более чем 10¹² Ом" TextColor="Black" FontSize="Small"></Label>
+                        </StackLayout>
+                    </ScrollView>
+                </Frame>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End" Margin="0, 0, 0, 8" Grid.Row="2">
+                <BoxView HeightRequest="2" Color="LightGray"></BoxView>
+                <BoxView x:Name="BoxView2" HeightRequest="2" Color="Black"></BoxView>
+            </StackLayout>
+        </Grid>
+    </ContentPage>
+</CarouselPage>

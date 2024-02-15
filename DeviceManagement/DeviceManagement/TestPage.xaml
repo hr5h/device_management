@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DeviceManagement.TestPage"
+             Title="TestPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="10">
+            <Button x:Name="TestButton1" BackgroundColor="#2196e0" TextColor="#F0F8FF" CornerRadius="15" Text="TestPage1"></Button>
+            <Button x:Name="TestButton2" BackgroundColor="#9ACEEB" TextColor="#F0F8FF" CornerRadius="15" Text="TestPage2"></Button>
+            <Button x:Name="TestButton3" BackgroundColor="#1E90FF" TextColor="White" CornerRadius="15" Text="TestPage3"></Button>
+            <Button x:Name="TestButton4" BackgroundColor="#008CF0" TextColor="White" CornerRadius="15" Text="TestPage4"></Button>
+            <Button x:Name="TestButton5" BackgroundColor="#007FFF" TextColor="White" CornerRadius="15" Text="TestPage5"></Button>
+            <Button x:Name="TestButton6" BackgroundColor="#7FC7FF" TextColor="White" BorderColor="#007FFF" BorderWidth="1" CornerRadius="15" Text="TestPage6"></Button>
+            <Button x:Name="TestButton7" BackgroundColor="#A6BDD7" TextColor="White" CornerRadius="15" Text="TestPage7"></Button>
+            <Button x:Name="TestButton8" BackgroundColor="#78A2B7" TextColor="White" CornerRadius="15" Text="TestPage8"></Button>
+            <Button x:Name="TestButton9" BackgroundColor="#87CEFA" TextColor="White" CornerRadius="15" Text="TestPage9"></Button>
+            <Button x:Name="TestButton10" BackgroundColor="#A6CAF0" TextColor="White" CornerRadius="15" Text="TestPage10"></Button>
+            <Button x:Name="TestButton11" BackgroundColor="#79A0C1" TextColor="White" CornerRadius="15" Text="TestPage11"></Button>
+            <Button x:Name="TestButton12" BackgroundColor="#6699CC" TextColor="White" CornerRadius="15" Text="TestPage12"></Button>
+            <Button x:Name="TestButton13" BackgroundColor="#AFDAFC" TextColor="White" CornerRadius="15" Text="TestPage13"></Button>
+            <Button x:Name="TestButton14" BackgroundColor="#1FAEE9" TextColor="White" CornerRadius="15" Text="TestPage14"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

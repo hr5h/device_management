@@ -5,8 +5,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
-                <Setter Property="BarBackgroundColor" Value="Black"/>
-                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BarTextColor" Value="#FFFFFF"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>
